@@ -1,5 +1,6 @@
-﻿using AutoDbLoader.DAL.MSSQL.Entity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using AutoDbLoader.DAL.MSSQL.Entity;
+
 
 namespace AutoDbLoader.DAL.MSSQL.Context
 {
@@ -15,14 +16,6 @@ namespace AutoDbLoader.DAL.MSSQL.Context
         }
 
         public virtual DbSet<TerritoryPayments> Payments { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("строка подключения");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

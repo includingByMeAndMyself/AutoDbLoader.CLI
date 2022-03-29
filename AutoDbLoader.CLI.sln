@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32112.339
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDbLoader.CLI", "AutoDbLoader.CLI\AutoDbLoader.CLI.csproj", "{3F87DDE7-C5AB-4AE8-A23E-E101C9BC0D80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoDbLoader.CLI", "AutoDbLoader.CLI\AutoDbLoader.CLI.csproj", "{3F87DDE7-C5AB-4AE8-A23E-E101C9BC0D80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDbLoader.DAL.txt", "AutoDbLoader.DAL.txt\AutoDbLoader.DAL.txt.csproj", "{A5B4F903-3570-4126-B76A-91D09CBA4C4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoDbLoader.DAL.txt", "AutoDbLoader.DAL.txt\AutoDbLoader.DAL.txt.csproj", "{A5B4F903-3570-4126-B76A-91D09CBA4C4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDbLoader.DAL.MSSQL", "AutoDbLoader.DAL.MSSQL\AutoDbLoader.DAL.MSSQL.csproj", "{FAFEABA8-9EF9-4816-BCF7-9A76818E32F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoDbLoader.DAL.MSSQL", "AutoDbLoader.DAL.MSSQL\AutoDbLoader.DAL.MSSQL.csproj", "{FAFEABA8-9EF9-4816-BCF7-9A76818E32F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoDbLoader.Test", "AutoDbLoader.Test\AutoDbLoader.Test.csproj", "{79FB6293-578D-43F9-B161-23346F78C8D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{FAFEABA8-9EF9-4816-BCF7-9A76818E32F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAFEABA8-9EF9-4816-BCF7-9A76818E32F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAFEABA8-9EF9-4816-BCF7-9A76818E32F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FB6293-578D-43F9-B161-23346F78C8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FB6293-578D-43F9-B161-23346F78C8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FB6293-578D-43F9-B161-23346F78C8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FB6293-578D-43F9-B161-23346F78C8D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace AutoDbLoader.DAL.MSSQL.Entity
 {
-    public class TerritoryPayments
+    public partial class TerritoryPayments
     {
         [Key]
         public string PersonalAccount { get; set; }

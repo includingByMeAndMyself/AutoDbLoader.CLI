@@ -1,6 +1,6 @@
-﻿using AutoDbLoader.DAL.MSSQL.Entity;
+﻿using AutoMapper;
+using AutoDbLoader.DAL.MSSQL.Entity;
 using AutoDbLoader.DAL.txt.Entity;
-using AutoMapper;
 
 namespace AutoDbLoader.CLI
 {

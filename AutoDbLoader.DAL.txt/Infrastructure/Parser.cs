@@ -11,7 +11,7 @@ namespace AutoDbLoader.DAL.txt.Infrastructure
         {
             var response = new List<AliasData>();
 
-            var filteredList = data.Split("\r\n", StringSplitOptions.None).ToList();
+            var filteredList = data.Split(":[!];;1\r\n", StringSplitOptions.None).ToList();
 
             foreach (var row in filteredList)
             {
@@ -24,9 +24,10 @@ namespace AutoDbLoader.DAL.txt.Infrastructure
                         INN = aliasInfo[Constant.AL_INN],
                         PaymentAccount = aliasInfo[Constant.AL_PAYMENT_ACCOUNT],
                         Alias = aliasInfo[Constant.AL_ALIAS],
-                        Key = aliasInfo[Constant.AL_KEY]
+                        Key = aliasInfo[Constant.AL_KEY],
+                        Address = aliasInfo[Constant.AL_ADDRESS]
                     };
-
+                    
                     if (aliasInfo.Length > 0)
                     {
                         response.Add(alias);
@@ -44,7 +45,9 @@ namespace AutoDbLoader.DAL.txt.Infrastructure
 
             foreach (var row in filteredList)
             {
-                if (!string.IsNullOrWhiteSpace(row))
+                var IsValid = !string.IsNullOrWhiteSpace(row) && !row.StartsWith('#');
+
+                if (IsValid)
                 {
                     var paymentsInfo = row.Split(";");
 
@@ -53,7 +56,7 @@ namespace AutoDbLoader.DAL.txt.Infrastructure
                         Payer = paymentsInfo[Constant.PAY_PAYER],
                         Address = paymentsInfo[Constant.PAY_ADDRESS],
                         PersonalAccount = paymentsInfo[Constant.PAY_PERSONAL_ACCOUNT],
-                        Debt = paymentsInfo[Constant.PAY_DEBT].Replace(',', '.'),
+                        Debt = paymentsInfo[Constant.PAY_DEBT].Replace(',','.'),
                         BIK = paymentsInfo[Constant.PAY_BIK],
                         PaymentAccount = paymentsInfo[Constant.PAY_PAYMENT_ACCOUNT],
                         INN = paymentsInfo[Constant.PAY_INN],

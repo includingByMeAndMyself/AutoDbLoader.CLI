@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-
 namespace AutoDbLoader.DAL.txt.Repository
 {
     public class PaymentRepository : IPaymentRepository
@@ -22,7 +21,7 @@ namespace AutoDbLoader.DAL.txt.Repository
             _aliasDataPath = txtSettings.AliasDataPath;
             _logger = logger;
         }
-
+        
         public List<AliasData> GetAliasDataFromFile()
         {
             var aliasData = GetDataFromFile(_aliasDataPath);
@@ -32,16 +31,16 @@ namespace AutoDbLoader.DAL.txt.Repository
 
         public List<Payment> GetPaymentsDataFromFile()
         {
-            var paymentsData = GetDataFromFile(_paymentsDataPath);
+            var paymentsData = GetDataFromFile(_paymentsDataPath, eEncoding.Win1251);
             var response = Parser.ParseToListPayments(paymentsData);
             return response;
         }
 
-        private string GetDataFromFile(string path)
+        private string GetDataFromFile(string path, eEncoding encoding = eEncoding.UTF8, string extension = "*.txt")
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-            var files = Directory.GetFiles(path, "*.txt");
+            var files = Directory.GetFiles(path, extension);
             var data = "";
 
             foreach (var file in files)
@@ -51,14 +50,18 @@ namespace AutoDbLoader.DAL.txt.Repository
                     try
                     {
                         _logger.LogInformation($" Загрузка из файла {file}");
-                        data = File.ReadAllText(file, Encoding.GetEncoding(1251));
+
+                        if(encoding == eEncoding.Win1251)
+                            data += File.ReadAllText(file, Encoding.GetEncoding(1251));
+                        else
+                            data += File.ReadAllText(file, Encoding.UTF8);
                     }
                     catch (System.Exception e)
                     {
                         _logger.LogError(e.Message);
                         throw;
                     }
-
+                    
                 }
             }
             return data;

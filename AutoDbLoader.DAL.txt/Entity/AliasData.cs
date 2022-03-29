@@ -7,6 +7,7 @@ namespace AutoDbLoader.DAL.txt.Entity
         public string PaymentAccount { get; set; }
         public string Alias { get; set; }
         public string Key { get; set; }
+        public string Address { get; set; }
 
     }
 }
